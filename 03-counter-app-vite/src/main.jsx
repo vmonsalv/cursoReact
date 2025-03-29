@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client"; // para renderizar
+import { FirstApp } from "./FirstApp";
 
-// functional component
-const App = () => {
-    return <h1>Hola Mundo!!!</h1>;
-}
+// import { App } from './HelloWorldApp'
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <App />
+        <FirstApp />
     </React.StrictMode>
 );
