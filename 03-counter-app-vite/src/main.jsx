@@ -8,6 +8,9 @@ import './styles.css'; //estilos globales
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <FirstApp />
+        <FirstApp title="Hola, soy Goku"
+        // subTitle="123" //pasa un string
+        subTitle={ 123 } // pasa un número 
+        />
     </React.StrictMode>
 );

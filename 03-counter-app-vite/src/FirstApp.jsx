@@ -15,12 +15,16 @@ const getResult = (a, b) => {
     return a + b;
 }
 
-export const FirstApp = () => {
+// es raro que las props se usen de esta maner, por lo general se destructura
+// export const FirstApp = (props) => {
+    export const FirstApp = ({ title, subTitle }) => {
     return <>
-        <h1>{ message }</h1>
+        {/* <h1>{ message }</h1> */}
         {/* <h3>{ JSON.stringify(objeto) }</h3> */}
-        <span> {getResult(1, 4)} </span>
-        <p>soy un subtitulo</p>    
+        {/* <span> {getResult(1, 4)} </span> */}
+        {/* <p>soy un subtitulo</p> */}
+        <h1>{ title }</h1>
+        <p>{ subTitle + 1 }</p>
     </>
     
 }
