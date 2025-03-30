@@ -13,11 +13,26 @@ export const CounterApp = ({ value }) => {
         // setCounter((c) => c + 1) -> otra manera de sumar 1
     }
 
+    const handleSubstract = () => {
+        setCounter(counter - 1)
+    }
+
+    const handleReset = () => {
+        setCounter(0)
+    }
+
     return <>
         <h1>CounterApp</h1>
         <h2>{ counter }</h2>
         <button onClick={ handleAdd }>
             +1
+        </button>
+
+        <button onClick={ handleSubstract }>
+            -1
+        </button>
+        <button onClick={ handleReset }>
+            Reset
         </button>
     </>
 }
