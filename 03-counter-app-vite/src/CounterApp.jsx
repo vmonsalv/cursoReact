@@ -14,6 +14,7 @@ export const CounterApp = ({ value }) => {
     }
 
     const handleSubstract = () => {
+        if((counter-1) >= 0)
         setCounter(counter - 1)
     }
 
