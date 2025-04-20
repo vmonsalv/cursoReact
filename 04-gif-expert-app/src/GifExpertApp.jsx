@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AddCategory } from "./components/AddCategory";
 
 // react snippet: rafc
 export const GifExpertApp = () => {
@@ -11,7 +12,7 @@ export const GifExpertApp = () => {
 
         // setCategories([...categories, newCategory]);
         if(!isCategoryExist)
-            setCategories(cat => [...cat, newCategory]);
+            setCategories(cat => [newCategory, ...cat]);
     }
     
     return (
@@ -20,6 +21,7 @@ export const GifExpertApp = () => {
             <h1>GifExpertApp</h1>
 
             {/* Input */}
+            <AddCategory />
 
             {/* Listado GIF */}
             <button onClick={onAddCategory}>Agregar</button>
