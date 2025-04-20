@@ -19,17 +19,37 @@ describe('Pruebas FirstApp', () => {
 
     test('Debe mostrar el título en h1', () => {
         const title="Title Test"
-        const { container, getByText } = render(
+        const { container, getByText, getByTestId } = render(
             <FirstApp
                 title={title}
             />
         )
 
-        expect(getByText(title)).toBeTruthy();
+        // expect(getByText(title)).toBeTruthy();
 
-        //no recomendado
-        const h1 = container.querySelector('h1');
-        expect(h1.innerHTML).toBe(title); //tener cuidado con los especios dentro de la etiqueta
-        expect(h1.innerHTML).toContain(title);
+        // //no recomendado
+        // const h1 = container.querySelector('h1');
+        // expect(h1.innerHTML).toBe(title); //tener cuidado con los especios dentro de la etiqueta
+        // expect(h1.innerHTML).toContain(title);
+
+        // expect(getByTestId('test-title').innerHTML).toBe(title); // prueba rígida
+        expect(getByTestId('test-title').innerHTML).toContain(title); // prueba flexible
+    })
+
+    test('Debe mostrar el subtítulo enviado por props', () => {
+        const title="Title Test";
+        const subtitle = "subtitulo test";
+        const { getAllByText } = render(
+            <FirstApp
+                title={title}
+                subTitle={subtitle}
+            />
+        )
+
+        // getBy se asegura que haya solo una coincidencia y arroja error si encuentra más
+        // expect(getByText(subtitle)).toBeTruthy();
+
+        //getAllByText devuelve un arreglo de elementos
+        expect(getAllByText(subtitle).length).toBe(2);
     })
 })

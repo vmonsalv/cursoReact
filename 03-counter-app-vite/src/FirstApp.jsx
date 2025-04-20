@@ -27,7 +27,8 @@ export const FirstApp = ({ title, subTitle, name }) => {
         {/* <h3>{ JSON.stringify(objeto) }</h3> */}
         {/* <span> {getResult(1, 4)} </span> */}
         {/* <p>soy un subtitulo</p> */}
-        <h1>{ title }</h1>
+        <div data-testid="test-title"> { title } </div>
+        <p>{ subTitle }</p>
         <p>{ subTitle }</p>
         <p>{ name }</p>
     </>
