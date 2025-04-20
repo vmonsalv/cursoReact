@@ -6,13 +6,12 @@ export const GifExpertApp = () => {
     const [categories, setCategories] = useState(['One Punch']);
     
 
-    const onAddCategory = () => {
-        const newCategory = "hunter x hunter";
-        const isCategoryExist = categories.some(category => category === newCategory);
+    const onAddCategory = (newCategory) => {
+        const isCategoryExist = categories.some(category => category === newCategory.trim());
 
         // setCategories([...categories, newCategory]);
         if(!isCategoryExist)
-            setCategories(cat => [newCategory, ...cat]);
+            setCategories(cat => [newCategory.trim(), ...cat]);
     }
     
     return (
@@ -21,10 +20,9 @@ export const GifExpertApp = () => {
             <h1>GifExpertApp</h1>
 
             {/* Input */}
-            <AddCategory />
+            <AddCategory onAddCategory={onAddCategory}/>
 
             {/* Listado GIF */}
-            <button onClick={onAddCategory}>Agregar</button>
             <ol>
                 {
                     categories.map(category => (
