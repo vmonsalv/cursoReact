@@ -18,16 +18,18 @@ const getResult = (a, b) => {
 // Beneficios: reacto no reprocesa o re renderiza lo que está fuera del functional component
 // objetos no se pueden renderizar
 
+
 // es raro que las props se usen de esta maner, por lo general se destructura
 // export const FirstApp = (props) => {
-export const FirstApp = ({ title, subTitle }) => {
+export const FirstApp = ({ title, subTitle, name }) => {
     return <>
         {/* <h1>{ message }</h1> */}
         {/* <h3>{ JSON.stringify(objeto) }</h3> */}
         {/* <span> {getResult(1, 4)} </span> */}
         {/* <p>soy un subtitulo</p> */}
         <h1>{ title }</h1>
-        {/* <p>{ subTitle + 1 }</p> */}
+        <p>{ subTitle }</p>
+        <p>{ name }</p>
     </>
     
 }
@@ -42,5 +44,7 @@ FirstApp.propTypes = {
 }
 
 FirstApp.defaultProps = {
-    title: 'No hay título'
+    // title: 'No hay título',
+    subTitle: 'No hay subtítulo',
+    name: 'Gon Freecs'
 }

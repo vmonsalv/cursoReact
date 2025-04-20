@@ -1,3 +1,4 @@
+/**  * @jest-environment jsdom  */
 import { getHeroeById, getHeroesByOwner } from "../../src/base-pruebas/08-imp-exp";
 import heroes from "../../src/data/heroes";
 
