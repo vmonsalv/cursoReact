@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getGifs } from "../helpers/getGifs";
+import { GifItem } from "./GifItem";
 
 export const GifGrid = ({ category }) => {
     
@@ -26,19 +27,24 @@ export const GifGrid = ({ category }) => {
     useEffect(() => {
         getImage();
     }, []);
-
+console.log('images', images);
 
   return (
     <>
         <h3>{category}</h3>
-        {
-            images.map(({ title, id, url}) => (
-                <>
-                <span>{title}</span>
-                <img key={id} src={url}/>
-                </>
-            ))
-        }
+        <div className="card-grid">
+            {
+                images.map((image) => (
+                    <GifItem
+                        key={image.id}
+                        {...image}
+                    />
+                    // el operador spread para las properties es útil
+                    // cuando son muchas propertis en el objeto
+                        // image={image}/>
+                ))
+            }
+        </div>
     </>
   )
 }
