@@ -21,6 +21,18 @@ export const GifGrid = ({ category }) => {
   return (
     <>
         <h3>{category}</h3>
+
+        {/* LOADING */}
+        {/* OPCIÓN 1 */}
+        {
+            // isLoading? <h2>Cargando ...</h2>: null
+            // And lógico, tiene el mismo efecto que la línea de arriba
+            isLoading && <h2>Cargando ...</h2>
+        }
+        {/* OPCIÓN 2: crear un componente */}
+        {/* <LoadingMessage isLoading={isLoading} /> */}
+        {/* <h2 className={'hidden'}>Cargando ...</h2> */}
+
         <div className="card-grid">
             {
                 images.map((image) => (
