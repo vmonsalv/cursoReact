@@ -3,32 +3,29 @@ import { AddCategory, GifGrid } from "./components";
 
 // react snippet: rafc
 export const GifExpertApp = () => {
-    const [categories, setCategories] = useState(['One Punch']);
-    
+  const [categories, setCategories] = useState(["One Punch"]);
 
-    const onAddCategory = (newCategory) => {
-        // const isCategoryExist = categories.some(category => category === newCategory.trim());
-        // if(isCategoryExist) return;
-        if(categories.includes(newCategory)) return;
+  const onAddCategory = (newCategory) => {
+    // const isCategoryExist = categories.some(category => category === newCategory.trim());
+    // if(isCategoryExist) return;
+    if (categories.includes(newCategory)) return;
 
-        // setCategories([...categories, newCategory]);
-        setCategories(cat => [newCategory, ...cat]);
-    }
-    
-    return (
-        <>
-            <h1>GifExpertApp</h1>
+    // setCategories([...categories, newCategory]);
+    setCategories((cat) => [newCategory, ...cat]);
+  };
 
-            <AddCategory onAddCategory={onAddCategory}/>
+  return (
+    <>
+      <h1>GifExpertApp</h1>
 
-            {/* Listado GIF */}
-            {
-                categories.map(category => (
-                    <GifGrid key={category} category={category} />
-                ))
-            }
-            
-                {/* GIF items */}
-        </>
-    )
-}
+      <AddCategory onAddCategory={onAddCategory} />
+
+      {/* Listado GIF */}
+      {categories.map((category) => (
+        <GifGrid key={category} category={category} />
+      ))}
+
+      {/* GIF items */}
+    </>
+  );
+};
