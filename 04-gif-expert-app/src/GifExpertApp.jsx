@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AddCategory } from "./components/AddCategory";
+import { GifGrid } from "./components/GifGrid";
 
 // react snippet: rafc
 export const GifExpertApp = () => {
@@ -7,29 +8,27 @@ export const GifExpertApp = () => {
     
 
     const onAddCategory = (newCategory) => {
-        const isCategoryExist = categories.some(category => category === newCategory.trim());
+        // const isCategoryExist = categories.some(category => category === newCategory.trim());
+        // if(isCategoryExist) return;
+        if(categories.includes(newCategory)) return;
 
         // setCategories([...categories, newCategory]);
-        if(!isCategoryExist)
-            setCategories(cat => [newCategory.trim(), ...cat]);
+        setCategories(cat => [newCategory, ...cat]);
     }
     
     return (
         <>
-            {/* Título */}
             <h1>GifExpertApp</h1>
 
-            {/* Input */}
             <AddCategory onAddCategory={onAddCategory}/>
 
             {/* Listado GIF */}
-            <ol>
-                {
-                    categories.map(category => (
-                        <li key={category}>{category}</li>
-                    ))
-                }
-            </ol>
+            {
+                categories.map(category => (
+                    <GifGrid key={category} category={category} />
+                ))
+            }
+            
                 {/* GIF items */}
         </>
     )
