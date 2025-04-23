@@ -12,7 +12,7 @@ export const AddCategory = (props) => {
 
     if(inputValue.trim().length <= 1) return;
 
-    props.onAddCategory(inputValue);
+    props.onAddCategory(inputValue.trim());
     setInputValue('');
   }
 
