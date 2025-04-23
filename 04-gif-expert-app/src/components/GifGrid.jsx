@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
-import { getGifs } from "../helpers/getGifs";
 import { GifItem } from "./GifItem";
+import { useFetchGifs } from "../hooks/useFetchGifs";
+// import { getGifs } from "../helpers/getGifs";
 
 export const GifGrid = ({ category }) => {
-    
-    const [images, setimages] = useState([])
+    const { images, isLoading } = useFetchGifs(category);
 
     //No se debe poner el llamado a una función en el functional component
     // xq cada vez que se renderiza, se llama a la función
@@ -18,16 +17,6 @@ export const GifGrid = ({ category }) => {
     //     // setimages(imgs);
     //     // return -> está destinado a hacer una limpieza si el useEffect tiene un observable
     // }, []); // si se dejan las dependencias vacías ([]) solo se disparará una vez, cuando se crea el componente
-
-    const getImage = async () => {
-        const imgs = await getGifs(category);
-        setimages(imgs);
-    }
-
-    useEffect(() => {
-        getImage();
-    }, []);
-console.log('images', images);
 
   return (
     <>
