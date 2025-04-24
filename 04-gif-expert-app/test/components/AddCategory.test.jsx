@@ -14,4 +14,15 @@ describe("Pruebas AddCategory", () => {
     // screen.debug();
     expect(input.value).toBe(inputValue);
   });
+
+  test("debe llamar onNewCategory si el input tiene un valor", () => {
+    render(<AddCategory onAddCategory={() => {}} />);
+    const input = screen.getByRole("textbox");
+    const form = screen.getByRole("form");
+
+    fireEvent.input(input, { target: { value: inputValue } });
+    fireEvent.submit(form);
+
+    expect(input.value).toBe("");
+  });
 });
