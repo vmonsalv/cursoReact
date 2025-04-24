@@ -20,7 +20,7 @@ describe("Prueba GifGrid", () => {
     expect(screen.getByText(category)).toBeTruthy();
   });
 
-  test("Debe mostarr items cuando se cargan las imágenes con useFetchGifs", () => {
+  test("Debe mostrar items cuando se cargan las imágenes con useFetchGifs", () => {
     const gifs = [{
         id: '123',
         title: 'La prueba',
@@ -33,8 +33,8 @@ describe("Prueba GifGrid", () => {
 
     render(<GifGrid category={category} />)
 
-    screen.debug();
+    // screen.debug();
 
-    expect(screen.getAllByRole('img'),length).toBe(1);
+    expect(screen.getAllByRole('img').length).toBe(1);
   });
 });
