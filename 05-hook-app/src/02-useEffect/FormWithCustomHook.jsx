@@ -2,24 +2,20 @@ import { useEffect, useState } from "react";
 import { useForm } from "../hooks/useForm";
 
 export const FormWithCustomHook = () => {
-  const { formState, onInputChange, userName, userEmail, userPassword } = useForm({
+  const {
+    formState,
+    onInputChange,
+    userName,
+    userEmail,
+    userPassword,
+    onResetForm,
+  } = useForm({
     userName: "",
     userEmail: "",
     userPassword: "",
   });
 
   // const { userName, userEmail, userPassword } = formState;
-
-  // useEffect(() => {
-  //   // console.log('use effect triggered');
-  // }, []);
-  // useEffect(() => {
-  //   // console.log('formState changed');
-  // }, [formState]);
-
-  // useEffect(() => {
-  //   // console.log('email changed');
-  // }, [userEmail]);
 
   return (
     <>
@@ -53,6 +49,10 @@ export const FormWithCustomHook = () => {
         value={userPassword}
         onChange={onInputChange}
       />
+
+      <button className="btn btn-primary mt-2" onClick={onResetForm}>
+        Borrar
+      </button>
     </>
   );
 };

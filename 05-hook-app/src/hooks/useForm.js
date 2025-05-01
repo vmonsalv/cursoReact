@@ -11,9 +11,14 @@ export const useForm = (initialFormulario = {}) => {
     });
   };
 
+  const onResetForm = () => {
+    setFormState(initialFormulario);
+  };
+
   return {
     ...formState,
     formState,
     onInputChange,
+    onResetForm,
   };
 };
