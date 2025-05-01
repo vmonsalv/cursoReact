@@ -7,7 +7,7 @@ import { SimpleForm } from './02-useEffect/SimpleForm'
 // import { CounterApp } from './01-useState/CounterApp'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
     <SimpleForm />
-  </StrictMode>,
+  // {/* </StrictMode>, */}
 )

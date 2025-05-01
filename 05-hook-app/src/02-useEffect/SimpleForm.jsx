@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Message } from "./Message";
 
 export const SimpleForm = () => {
   const [formState, setFormState] = useState({
@@ -22,14 +23,14 @@ export const SimpleForm = () => {
   // se recomienda que se creen un useEffect especializado y específicos por cada acción que se quiere ejecutar
   // no uno que haga muchas acciones.
   useEffect(() => {
-    console.log('use effect triggered');
+    // console.log('use effect triggered');
   }, []);
   useEffect(() => {
-    console.log('formState changed');
+    // console.log('formState changed');
   }, [formState]);
 
   useEffect(() => {
-    console.log('email changed');
+    // console.log('email changed');
   }, [userEmail]);
   
 
@@ -56,6 +57,10 @@ export const SimpleForm = () => {
         value={userEmail}
         onChange={onInputChange}
       />
+
+      {
+        userName === 'barto2' && <Message/>
+      }
     </>
   );
 };
