@@ -16,9 +16,21 @@ export const SimpleForm = () => {
   };
 
   // useEffect es para disparar efectos secundarios
+  // no se recomienda que se utilice un useEffect sin una dependencia (2do argumento)
+  // las dependencias son las condiciones por las cuales queremos que useEffect se vuelva a disparar
+  // si se le pasa [] es xq queremos que se ejecute solo una vez ("no hay condiciones para que se vuelva a llamar el useEffect")
+  // se recomienda que se creen un useEffect especializado y específicos por cada acción que se quiere ejecutar
+  // no uno que haga muchas acciones.
   useEffect(() => {
     console.log('use effect triggered');
-  })
+  }, []);
+  useEffect(() => {
+    console.log('formState changed');
+  }, [formState]);
+
+  useEffect(() => {
+    console.log('email changed');
+  }, [userEmail]);
   
 
   return (
